@@ -27,7 +27,7 @@
             });
             const c = document.getElementById("canvas");
             c.addEventListener('touchstart', function(e) {
-                tap+=1000/(Date.now()-time)
+                tap.push(1000/(Date.now()-time))
                 time=Date.now()
             });
             document.addEventListener("touchmove", (event)=>event.preventDefault(), { passive: false });
