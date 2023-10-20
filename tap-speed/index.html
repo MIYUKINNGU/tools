@@ -3,8 +3,8 @@
     <head></head>
     <body style="margin: 0;">
         <p>同時押し不可</p>
-        <p>tap/s:</p><p style="display: inline;" id="tps">0</p>
-        <p>mtap/s:</p><p style="display: inline;" id="mtps">0</p>
+        <p id="tps">tap/s:</p>
+        <p id="mtps">mtap/s:</p>
         <canvas id="canvas" style="width:100%; height: 300px;"></canvas>
         <script>
             let tap = 0;
@@ -13,9 +13,9 @@
                 const tps = document.getElementById("tps")
                 const mtps = document.getElementById("mtps")
                 setInterval(() => {
-                    tps.innerText = `${tap}`
+                    tps.innerText = `tap/s: ${tap}`
                     if (mtap<tap) mtap=tap;
-                    mtps.innerText = `${mtap}`
+                    mtps.innerText = `mtap/s: ${mtap}`
                     tap=0;
                 }, 1000);
             });
