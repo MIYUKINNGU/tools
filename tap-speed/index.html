@@ -7,23 +7,27 @@
         <p id="mtps">mtap/s:</p>
         <canvas id="canvas" style="width:100%; height: 300px;"></canvas>
         <script>
-            let tap = 0;
+            let tap = [];
             let mtap = 0;
             let time = Date.now();
             window.addEventListener("DOMContentLoaded", function(){
                 const tps = document.getElementById("tps")
                 const mtps = document.getElementById("mtps")
                 setInterval(() => {
-                    tps.innerText = `tap/s: ${tap}`
-                    if (mtap<tap) mtap=tap;
+                    let sum =0;
+                    for (let i = 0; i < tap.length; i++) {
+                        sum += tap[i];
+                    }
+                    tps.innerText = `tap/s: ${sum/tap.length}`
+                    if (mtap<sum/tap.length) mtap=sum/tap.length;
                     mtps.innerText = `mtap/s: ${mtap}`
-                    tap=0;
+                    tap=[];
                     time=Date.now();
                 }, 1000);
             });
             const c = document.getElementById("canvas");
             c.addEventListener('touchstart', function(e) {
-                tap=1000/(Date.now()-time)
+                tap+=1000/(Date.now()-time)
                 time=Date.now()
             });
             document.addEventListener("touchmove", (event)=>event.preventDefault(), { passive: false });
