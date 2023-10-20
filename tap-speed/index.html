@@ -23,6 +23,7 @@
             c.addEventListener('touchstart', function(e) {
                 tap++;
             });
+            document.addEventListener("touchmove", (event)=>event.preventDefault(), { passive: false });
         </script>
     </body>
 </html>
