@@ -20,7 +20,7 @@
                     for (let i = 0; i < tap.length; i++) {
                         sum += tap[i];
                     }
-                    const a = sum/tap.length==NaN?0:sum/tap.length;
+                    const a = isNaN(sum/tap.length)?0:sum/tap.length;
                     tps.innerText = `tap/s: ${a}`
                     if (mtap<a) mtap=a;
                     mtps.innerText = `mtap/s: ${mtap}`
