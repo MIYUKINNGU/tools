@@ -18,8 +18,9 @@
                     for (let i = 0; i < tap.length; i++) {
                         sum += tap[i];
                     }
-                    tps.innerText = `tap/s: ${sum/tap.length}`
-                    if (mtap<sum/tap.length) mtap=sum/tap.length;
+                    const a = sum/tap.length==NaN?0:sum/tap.length;
+                    tps.innerText = `tap/s: ${a}`
+                    if (mtap<a) mtap=a;
                     mtps.innerText = `mtap/s: ${mtap}`
                     tap=[];
                     time=Date.now();
