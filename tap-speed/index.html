@@ -9,6 +9,7 @@
         <script>
             let tap = 0;
             let mtap = 0;
+            let time = Date.now();
             window.addEventListener("DOMContentLoaded", function(){
                 const tps = document.getElementById("tps")
                 const mtps = document.getElementById("mtps")
@@ -16,12 +17,12 @@
                     tps.innerText = `tap/s: ${tap}`
                     if (mtap<tap) mtap=tap;
                     mtps.innerText = `mtap/s: ${mtap}`
-                    tap=0;
                 }, 1000);
             });
             const c = document.getElementById("canvas");
             c.addEventListener('touchstart', function(e) {
-                tap++;
+                tap=1/(Date.now()-time)
+                time=Date.now()
             });
             document.addEventListener("touchmove", (event)=>event.preventDefault(), { passive: false });
         </script>
