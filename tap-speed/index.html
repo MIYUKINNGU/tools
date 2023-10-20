@@ -17,6 +17,8 @@
                     tps.innerText = `tap/s: ${tap}`
                     if (mtap<tap) mtap=tap;
                     mtps.innerText = `mtap/s: ${mtap}`
+                    tap=0;
+                    time=Date.now();
                 }, 1000);
             });
             const c = document.getElementById("canvas");
